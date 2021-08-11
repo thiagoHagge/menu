@@ -34,6 +34,21 @@ export default function Home() {
               <h6>Lanche 01 - Burger  01</h6>
               <small>Descrição do Hamburguer</small>
             </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <small>Descrição do Hamburguer</small>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <small>Descrição do Hamburguer</small>
+            </div>
+            <div className={styles.previewFood}></div>
           </li>
         </ul>
         
