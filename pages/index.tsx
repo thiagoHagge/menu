@@ -1,8 +1,32 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import foodPorn from '../public/img/foodPorn.png'
 export default function Home() {
+  const [category, setCategory] = useState('burger')
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    if (position >= document.getElementById('outros').offsetTop - 41.67) {
+      setCategory('outros')
+    } else if (position >= document.getElementById('drinks').offsetTop - 41.67) {
+      setCategory('drinks')
+    } else if (position >= document.getElementById('sucos').offsetTop - 41.67) {
+      setCategory('sucos')
+    } else if (position >= document.getElementById('lanches').offsetTop - 41.67) {
+      setCategory('lanches')
+    } else {
+      setCategory('burger')
+    };
+    
+};
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  // };
+}, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,60 +36,491 @@ export default function Home() {
       </Head>
       <nav className={styles.navbar}>
         <ul className={styles.categoryList}>
-          <li className={styles.categoryItem}>Burger</li>
-          <li className={styles.categoryItem}>Lanches</li>
-          <li className={styles.categoryItem}>Sucos</li>
-          <li className={styles.categoryItem}>Drinks</li>
-          <li className={styles.categoryItem}>Outros</li>
-          {/* <li className={styles.categoryItem}>Outros</li>
-          <li className={styles.categoryItem}>Outros</li>
-          <li className={styles.categoryItem}>Outros</li>
-          <li className={styles.categoryItem}>Outros</li> */}
+          <li className={`${styles.categoryItem} ${category == 'burger' && styles.active}`}><a href="#burger" onClick={() => setCategory('burger')}>Burger</a></li>
+          <li className={`${styles.categoryItem} ${category == 'lanches' && styles.active}`}><a href="#lanches" onClick={() => setCategory('lanches')}>Lanches</a></li>
+          <li className={`${styles.categoryItem} ${category == 'sucos' && styles.active}`}><a href="#sucos" onClick={() => setCategory('sucos')}>Sucos</a></li>
+          <li className={`${styles.categoryItem} ${category == 'drinks' && styles.active}`}><a href="#drinks" onClick={() => setCategory('drinks')}>Drinks</a></li>
+          <li className={`${styles.categoryItem} ${category == 'outros' && styles.active}`}><a href="#outros" onClick={() => setCategory('outros')}>Outros</a></li>
         </ul>
       </nav>
-      {/* <nav className={styles.banner}>
-        <Image src="/img/foodPorn.png" alt="Nosso melhor hambúrger" layout='fill' objectFit='contain' />
-
-      </nav> */}
       <main className={styles.main}>
+        <div className={styles.banner}>
+          <Image src={foodPorn} alt="Nosso melhor hambúrger" layout="responsive" objectFit="cover" />
+        </div>
+        <h4 className={styles.category} id="burger">Burger</h4>
         <ul className={styles.menu}>
           <li className={styles.dish}>
             <div>
               <h6>Lanche 01 - Burger  01</h6>
-              <small>Descrição do Hamburguer</small>
+              <p>Descrição do Hamburguer</p>
             </div>
             <div className={styles.previewFood}></div>
           </li>
           <li className={styles.dish}>
             <div>
               <h6>Lanche 01 - Burger  01</h6>
-              <small>Descrição do Hamburguer</small>
+              <p>Descrição do Hamburguer</p>
             </div>
             <div className={styles.previewFood}></div>
           </li>
           <li className={styles.dish}>
             <div>
               <h6>Lanche 01 - Burger  01</h6>
-              <small>Descrição do Hamburguer</small>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
             </div>
             <div className={styles.previewFood}></div>
           </li>
         </ul>
         
-      </main>
+        <h4 className={styles.category} id="lanches">Lanches</h4>
+        <ul className={styles.menu}>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Lanche 01 - Burger  01</h6>
+              <p>Descrição do Hamburguer</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+        </ul>
+        
+        <h4 className={styles.category} id="sucos">Sucos</h4>
+        <ul className={styles.menu}>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+        </ul>
+        <h4 className={styles.category} id="drinks">Drinks</h4>
+        <ul className={styles.menu}>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+        </ul>
+        <h4 className={styles.category} id="outros">Outros</h4>
+        <ul className={styles.menu}>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+          <li className={styles.dish}>
+            <div>
+              <h6>Suco 01</h6>
+              <p>Descrição do Suco</p>
+            </div>
+            <div className={styles.previewFood}></div>
+          </li>
+        </ul>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      </main>
     </div>
   )
 }
