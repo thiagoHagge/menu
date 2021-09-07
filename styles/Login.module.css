@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+.container {
+  min-height: 100vh;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  max-width: 100vw;
+  background-color: #152733;
+}
+
+.main {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 340px;
+}
+.formControl {
+  border: 0;
+  background-color: #fff;
+  color: #8d8d8d;
+  width: 100%;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
