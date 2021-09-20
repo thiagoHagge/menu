@@ -6,14 +6,15 @@ import foodPorn from '../public/img/foodPorn.png'
 export default function Home() {
   const [category, setCategory] = useState('burger')
   const handleScroll = () => {
-    const position = window.pageYOffset;
-    if (position >= document.getElementById('outros').offsetTop - 41.67) {
+    const position        = window.pageYOffset;
+
+    if (position >= Number(document.getElementById('outros')!.offsetTop) - 41.67) {
       setCategory('outros')
-    } else if (position >= document.getElementById('drinks').offsetTop - 41.67) {
+    } else if (position >= Number(document.getElementById('drinks')!.offsetTop) - 41.67) {
       setCategory('drinks')
-    } else if (position >= document.getElementById('sucos').offsetTop - 41.67) {
+    } else if (position >= Number(document.getElementById('sucos')!.offsetTop) - 41.67) {
       setCategory('sucos')
-    } else if (position >= document.getElementById('lanches').offsetTop - 41.67) {
+    } else if (position >= Number(document.getElementById('lanches')!.offsetTop) - 41.67) {
       setCategory('lanches')
     } else {
       setCategory('burger')
