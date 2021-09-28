@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "RebelHero";
+  src: url("/fonts/RebelHero/Rebel-Hero.otf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
 html,
 body {
   padding: 0;
